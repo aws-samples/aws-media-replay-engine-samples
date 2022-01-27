@@ -1,0 +1,27 @@
+*.swp
+*__pycache__/
+.pytest_cache
+*.egg-info
+chalice.out
+**/.chalice/deployments/
+**/.chalice/venv/
+venv/
+.aws-sam
+.idea/
+.vscode
+*.DS_Store
+
+node_modules/
+source/mre-fan-experience-frontend/build/
+source/mre-fan-experience-frontend/mre-fan-experience-frontend/
+source/mre-fan-experience-frontend/package-lock.json
+source/**/sample-data/
+source/**/LambdaLayers/
+
+.env
+*.py-e
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+cdk-outputs.json

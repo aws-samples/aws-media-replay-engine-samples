@@ -1,0 +1,53 @@
+{
+  "Lambda": {
+    "Handler": "DetectSpeech.lambda_handler",
+    "MemorySize": 512,
+    "TimeoutSecs": 120,
+    "IAMPolicyDocument": [
+      {
+        "Actions": [
+          "s3:GetObject",
+          "s3:ListBucket"
+        ],
+        "Resources": [
+          "arn:aws:s3:::*transcribe*"
+        ]
+      },
+      {
+        "Actions": [
+          "transcribe:StartTranscriptionJob",
+          "transcribe:GetTranscriptionJob"
+        ],
+        "Resources": [
+          "*"
+        ]
+      }
+    ]
+  },
+  "MRE": {
+    "Plugin": {
+      "Name": "DetectSpeech",
+      "Description": "Uses Amazon Transribe to detect pauses in speech for the purpose of optimization",
+      "Class": "Featurer",
+      "ExecutionType": "Sync",
+      "SupportedMediaType": "Audio",
+      "ContentGroups": [
+        "All"
+      ],
+      "ExecuteLambdaQualifiedARN": "",
+      "Configuration": {
+        "silence_duration_sec": "2",
+        "input_bucket_name": "tbd",
+        "output_bucket_name": "tbd"
+      },
+      "OutputAttributes": {
+        "Label": {
+          "Description": "Boolean result indicating whether speech is present"
+        },
+        "Transcription": {
+          "Description": "The raw output of Transcribe"
+        }
+      }
+    }
+  }
+}

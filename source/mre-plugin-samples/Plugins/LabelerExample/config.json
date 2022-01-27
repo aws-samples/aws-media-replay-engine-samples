@@ -1,0 +1,20 @@
+{
+  "Lambda": {
+    "Handler": "LabelerExample.lambda_handler",
+    "MemorySize": 256,
+    "TimeoutSecs": 30
+  },
+  "MRE": {
+    "Plugin": {
+      "Name": "LabelerExample",
+      "Description": "This is start code for a simple labeler plugin.",
+      "Class": "Labeler",
+      "ExecutionType": "Sync",
+      "SupportedMediaType": "Video",
+      "ContentGroups": [
+        "All"
+      ],
+      "ExecuteLambdaQualifiedARN": ""      
+    }
+  }
+}

@@ -1,0 +1,5 @@
+aws-cdk.aws_iam
+aws_cdk.aws_codecommit
+aws_cdk.aws_amplify
+aws_cdk.aws_cognito
+boto3

@@ -1,0 +1,32 @@
+{
+  "Lambda": {
+    "Handler": "DetectAudioSilence.lambda_handler",
+    "MemorySize": 256,
+    "TimeoutSecs": 60,
+    "Layers": [
+      "ffmpeg"
+    ]
+  },
+  "MRE": {
+    "Plugin": {
+      "Name": "DetectAudioSilence",
+      "Description": "This plugin attempts to detect where silence is occurring in an audio track by using FFMPEG.",
+      "Class": "Featurer",
+      "ExecutionType": "Sync",
+      "SupportedMediaType": "Audio",
+      "ContentGroups": [
+        "All"
+      ],
+      "ExecuteLambdaQualifiedARN": "",
+      "Configuration": {
+        "silence_threshold_db": "-50",
+        "silence_duration_sec": "2"
+      },
+      "OutputAttributes": {
+        "Label": {
+          "Description": ""
+        }
+      }
+    }
+  }
+}

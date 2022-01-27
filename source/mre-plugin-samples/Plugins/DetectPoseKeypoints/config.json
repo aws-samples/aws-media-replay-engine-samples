@@ -1,0 +1,50 @@
+{
+  "Lambda": {
+    "Handler": "DetectPoseKeypoints.lambda_handler",
+    "MemorySize": 512,
+    "TimeoutSecs": 120,
+    "IAMPolicyDocument": [
+      {
+        "Actions": [
+          "sagemaker:InvokeEndpoint"
+        ],
+        "Resources": [
+          "*"
+        ]
+      }
+    ],
+    "Layers": [
+       "scipy",
+       "opencv-python"
+     ]
+  },
+  "MRE": {
+    "Plugin": {
+      "Name": "DetectPoseKeypoints",
+      "Description": "This plugin detects keypoints for a pose estimation.",
+      "Class": "Featurer",
+      "ExecutionType": "SyncModel",
+      "SupportedMediaType": "Video",
+      "ContentGroups": [
+        "All"
+      ],
+      "ExecuteLambdaQualifiedARN": "",
+      "ModelEndpoints": [
+        {
+          "Name": "PoseKeypointExtractionModel"
+        }
+      ],
+      "Configuration": {
+        "minimum_confidence": "0.6"
+      },
+      "OutputAttributes": {
+        "keypoints": {
+          "Description": ""
+        },
+        "frameId": {
+          "Description": ""
+        }
+      }
+    }
+  }
+}
