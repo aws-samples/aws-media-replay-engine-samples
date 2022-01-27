@@ -23,8 +23,8 @@ Run the following commands to build and deploy the sample applications from scra
 
 ```
 REGION=[specify a region in a format like us-east-1]
-git clone ssh://git.amazon.com/pkg/MRE-Samples
-cd MRE-Samples
+git clone https://github.com/aws-samples/aws-media-replay-engine-samples.git
+cd aws-media-replay-engine-samples
 deployment_dir=$(pwd)/deployment
 source_dir=$(pwd)/source
 ```
