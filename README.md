@@ -6,10 +6,10 @@ There is also a sample HLS Harvester application included that can be used to st
 
 This repository consists of the following applications, each of which can be deployed individually:
 
-* plugin-samples: CDK to deploy all the sample Lambda functions into your account and register them as Plugins in MRE.
-* model-samples: Contains the ML Model artifacts used by the sample Plugins. These need to be manually deployed and registered in MRE before deploying the sample Plugins.
-* fan-experience-frontend: CDK to deploy the Fan Experience GUI into your account.
-* hls-harvester-sample: CDK to deploy the HLS Harvester Sample application into your account.
+* `plugin-samples` - CDK to deploy all the sample Lambda functions into your account and register them as Plugins in MRE.
+* `model-samples` - Contains the ML Model artifacts used by the sample Plugins. These need to be manually deployed and registered in MRE before deploying the sample Plugins.
+* `fan-experience-frontend` - CDK to deploy the Fan Experience GUI into your account.
+* `hls-harvester-sample` - CDK to deploy the HLS Harvester Sample application into your account.
 
 # Install
 
@@ -22,7 +22,7 @@ This repository consists of the following applications, each of which can be dep
 Run the following commands to build and deploy the sample applications from scratch. Be sure to define a value for `REGION` first.
 
 ```
-REGION=[specify a region in a format like us-east-1]
+REGION=[specify the region where MRE is deployed in a format like us-east-1]
 git clone https://github.com/aws-samples/aws-media-replay-engine-samples.git
 cd aws-media-replay-engine-samples
 deployment_dir=$(pwd)/deployment
