@@ -4,16 +4,16 @@
 - Featurer
 
 **Description**:  
-This model endpoint uses [OpenL3](https://github.com/marl/openl3) library to embed audio signal into vectors.
+This model endpoint uses [OpenL3](https://github.com/marl/openl3) library to embed audio signals into vectors.
 This endpoint is created based on a BYOC(Bring Your Own Custom) inference image.
 
 
 **Use Cases**:  
 - Ace serve and double fault serve audio embedding
-- Any audio classification based on embedding
+- Any audio classification use cases based on audio embedding
 
 **Model Type**:  
-- Open-source libraries hosted as Amazon SageMaker endpoint  
+- Open-source models hosted as Amazon SageMaker endpoint  
 
 **Methods for training data collection and annotation**  
 N/A

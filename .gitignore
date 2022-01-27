@@ -15,6 +15,7 @@ node_modules/
 source/mre-fan-experience-frontend/build/
 source/mre-fan-experience-frontend/mre-fan-experience-frontend/
 source/mre-fan-experience-frontend/package-lock.json
+source/mre-fan-experience-frontend/README.md
 source/**/sample-data/
 source/**/LambdaLayers/
 

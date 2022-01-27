@@ -24,7 +24,7 @@ This plugin detects keypoints for a pose estimation. Pose estimation is very use
 - None
 
 **Parameter inputs**:
-- Minimum_Confidence >> Minimum Confidence for keypoints extraction
+- minimum_confidence >> Minimum Confidence for keypoints extraction
 
 
 **Output attributes**:

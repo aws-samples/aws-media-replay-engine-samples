@@ -1,4 +1,4 @@
-#Audio Embedding Classification Model#
+# Audio Embedding Classification Model
 
 **MRE Plugin Class**
 - Featurer
@@ -7,18 +7,18 @@
 - Classify audio spectrum into predefined classes  
 
 **Use Cases**:  
-- Audio scene classfication in Tennis demo  
+- Audio scene classification in the Tennis demo  
 - Any audio spectrum classification  
 
 **Model Type**:  
-- Custom Model trained by Amazon SageMaker Autopilot
+- Custom model trained by Amazon SageMaker Autopilot
 
 **Methods for training data collection and annotation**  
 - See details in the notebook
 - An end-to-end solution for audio classification is under development
 
 **Methods for model training**  
-- Create an Autopilot job.   
+- Create an SageMaker Autopilot job.   
 
 **Methods for model hosting**  
-- Autopilot job will host an endpoint for the best candiate job
+- SageMaker Autopilot job will host an endpoint for the best candiate job

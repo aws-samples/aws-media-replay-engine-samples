@@ -24,7 +24,7 @@ This plugin detects scorebox from the frame images
 - None
 
 **Parameter inputs**:
-- Minimum_Confidence >> Minimum Confidence for keypoints extraction
+- minimum_monfidence >> Minimum Confidence for keypoints extraction
 
 
 **Output attributes**:
