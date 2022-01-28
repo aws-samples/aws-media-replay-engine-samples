@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: MIT-0
 #
 # PURPOSE:
-#   Deploy the Plugin Lambda functions using AWS CDK and register them in AWS MRE.
+#   Build and deploy CloudFormation templates for the sample applications using AWS CDK.
 #
 # USAGE:
 #  ./build-and-deploy.sh [-h] [-v] --app {APPLICATION} --region {REGION} --profile {PROFILE}
