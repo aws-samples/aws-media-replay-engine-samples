@@ -127,4 +127,4 @@ def transform_fn(net, data, input_content_type, output_content_type):
 
     predictions = {'prediction':result}
 
-    return predictionslist
+    return predictions
