@@ -111,7 +111,7 @@ def transform_fn(net, data, input_content_type, output_content_type):
     
     # Detect pose and generate heatmap
     predicted_heatmap = model_pose(pose_input)
-    coords_list, pred_ratio, confidence = heatmap_to_coord_ratio(predicted_heatmap, upscale_bbox)
+    pred_coords, pred_ratio, confidence = heatmap_to_coord_ratio(predicted_heatmap, upscale_bbox)
     
     coords_list = pred_coords.asnumpy().tolist()
     ratio_list = pred_ratio.asnumpy().tolist()
