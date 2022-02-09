@@ -1,5 +1,6 @@
-aws-cdk.aws_iam
-aws_cdk.aws_codecommit
-aws_cdk.aws_amplify
-aws_cdk.aws_cognito
-boto3
+aws-cdk.aws_iam>=1.85.0,<2.0
+aws_cdk.aws_cognito>=1.85.0,<2.0
+aws_cdk.aws_codecommit>=1.85.0,<2.0
+aws_cdk.aws_amplify>=1.85.0,<2.0
+boto3<2.0.0
+git-remote-codecommit
