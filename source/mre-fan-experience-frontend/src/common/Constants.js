@@ -15,8 +15,8 @@ import TENNIS_DARK_IMAGE from '../assets/tennis.svg';
 import GOLF_DARK_IMAGE from '../assets/golf.svg';
 import SWIMMING_DARK_IMAGE from '../assets/swimming.svg';
 import FOOTBALL_DARK_IMAGE from '../assets/football.svg';
-import SOCCER_BACKGROUND_IMAGE from '../assets/soccer_background.png';
-import TENNIS_BACKGROUND_IMAGE from '../assets/tennis_background.png';
+import SOCCER_BACKGROUND_IMAGE from '../assets/soccer_background.jpg';
+import TENNIS_BACKGROUND_IMAGE from '../assets/tennis_background.jpg';
 
 
 export const CATEGORIES = [

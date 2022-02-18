@@ -7,7 +7,7 @@
 
 import React from 'react';
 
-import logo from '../../assets/company-logo.svg';
+import logo from '../../assets/aws-logo.svg';
 import config from '../../config';
 
 import {makeStyles} from "@material-ui/core/styles";

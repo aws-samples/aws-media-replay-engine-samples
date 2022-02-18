@@ -89,7 +89,7 @@ export const Events = (props) => {
 
     const category_details = _.find(CATEGORIES, {"title": category});
     return (
-        <section className={classes.root} style={{backgroundImage: `url(${category_details.backgroundImage})`}}>
+        <section className={classes.root} style={{backgroundImage: `url(${category_details.backgroundImage})`, backgroundSize: "100%"}}>
             {
                 isLoading ?
                     <div>
