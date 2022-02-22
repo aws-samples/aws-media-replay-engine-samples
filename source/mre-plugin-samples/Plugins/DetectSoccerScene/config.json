@@ -23,29 +23,24 @@
       "Name": "DetectSoccerScene",
       "Description": "This plugin uses a soccer scene classification model to determine what the camera scene is.",
       "Class": "Featurer",
-      "ExecutionType": "SyncModel",
+      "ExecutionType": "Sync",
       "SupportedMediaType": "Video",
       "ContentGroups": [
         "Soccer"
       ],
       "ExecuteLambdaQualifiedARN": "",
-      "ModelEndpoints": [
-        {
-          "Name": "SceneClassificationModel"
-        }
-      ],
       "Configuration": {
-        "minimum_confidence": "30"
+        "minimum_confidence": "50"
       },
       "OutputAttributes": {
         "Label": {
-          "Description": ""
+          "Description": "Add a desc"
         },
-        "Confidence": {
-          "Description": ""
+        "FreeKick": {
+          "Description": "Add a desc"
         },
-        "frameId": {
-          "Description": ""
+        "CornerKick": {
+          "Description": "Add a desc"
         }
       }
     }

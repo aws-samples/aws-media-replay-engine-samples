@@ -1,8 +1,8 @@
 {
   "Lambda": {
     "Handler": "DetectPoseKeypoints.lambda_handler",
-    "MemorySize": 512,
-    "TimeoutSecs": 120,
+    "MemorySize": 10000,
+    "TimeoutSecs": 240,
     "IAMPolicyDocument": [
       {
         "Actions": [
@@ -23,26 +23,18 @@
       "Name": "DetectPoseKeypoints",
       "Description": "This plugin detects keypoints for a pose estimation.",
       "Class": "Featurer",
-      "ExecutionType": "SyncModel",
+      "ExecutionType": "Sync",
       "SupportedMediaType": "Video",
       "ContentGroups": [
-        "All"
+        "Soccer"
       ],
       "ExecuteLambdaQualifiedARN": "",
-      "ModelEndpoints": [
-        {
-          "Name": "PoseKeypointExtractionModel"
-        }
-      ],
       "Configuration": {
-        "minimum_confidence": "0.6"
+        "minimum_confidence": "0.9"
       },
       "OutputAttributes": {
-        "keypoints": {
-          "Description": ""
-        },
-        "frameId": {
-          "Description": ""
+        "Label": {
+          "Description": "Add a desc"
         }
       }
     }
