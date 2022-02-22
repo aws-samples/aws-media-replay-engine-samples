@@ -36,7 +36,7 @@
       ],
       "Configuration": {
         "minimum_confidence": "0.7",
-        "Keypoints_List": [0,1,2,3]
+        "Keypoints_List": [0,5,6,9,10,11,12,15,16]
       },
       "OutputAttributes": {
         "Label": {

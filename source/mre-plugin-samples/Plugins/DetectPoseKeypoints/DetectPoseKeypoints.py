@@ -34,6 +34,7 @@ def lambda_handler(event, context):
         p_fps = int(event["Profile"]["ProcessingFrameRate"]) #1
         v_fps = int(event["Input"]["Metadata"]["HLSSegment"]["FrameRate"]) #25
         frameRate = int(v_fps/p_fps)
+        frameRate = 25
 
         cap = cv2.VideoCapture(media_path)
         while(cap.isOpened()):
