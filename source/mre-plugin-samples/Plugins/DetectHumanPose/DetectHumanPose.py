@@ -78,7 +78,7 @@ def lambda_handler(event, context):
                     elabel["Start"] = mre_dataplane.get_frame_timecode(sbFrame)
                     elabel["End"] = elabel["Start"]
                     elabel["frameId"] = sbFrame
-                    elabel['poseDetection'] = 'True'
+                    elabel['PoseDetection'] = True
                     elabel['poseConfidence'] = conf
                     elabel["Label"] = 'Pointing_Pose'
                     results.append(elabel)

@@ -31,7 +31,8 @@ def lambda_handler(event, context):
         _, chunk_filename = head, tail = os.path.split(event['Input']['Media']["S3Key"])
         model_endpoint = str(event['Plugin']['ModelEndpoint'])
         minimum_confidence = int(event["Plugin"]["Configuration"]["minimum_confidence"]) #30
-
+        #origLabel = bool(event["Plugin"]["Configuration"]["origLabel"] == 'True')
+        origLabel = False
         # Frame rate for sampling
         p_fps = int(event["Profile"]["ProcessingFrameRate"]) #i.e. 5
         v_fps = int(event["Input"]["Metadata"]["HLSSegment"]["FrameRate"]) #i.e. 25
@@ -75,8 +76,14 @@ def lambda_handler(event, context):
                             new_label = orig_label
 
                         #print(orig_label,new_label)
-                        elabel['Label'] = new_label
-                        elabel['origLabel'] = ('_').join(orig_label.split('-'))
+                        if origLabel:
+                            elabel['Label'] = ('_').join(orig_label.split('-'))
+                        else:
+                            elabel['Label'] = new_label
+                            #elabel['origLabel'] = ('_').join(orig_label.split('-'))
+                            elabel['CornerKick'] = True if 'Corner' in orig_label else False
+                            elabel['FreeKick'] = True if 'Free' in orig_label else False
+
                         elabel["Confidence"] = '{:.2f}'.format(response["CustomLabels"][0]["Confidence"])
 
                         # Get timecode from frame
