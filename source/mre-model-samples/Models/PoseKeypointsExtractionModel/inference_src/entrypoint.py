@@ -106,8 +106,9 @@ def transform_fn(net, data, input_content_type, output_content_type):
     #upscale_bbox by 1.25 to make sure human is all included
     pose_input, upscale_bbox = detector_to_simple_pose(img, cid, score, bbox)
     result = []
+    qcresult = []
     if pose_input is None:
-        return [{'prediction':result}]
+        return [{'prediction':result},{'qcresult':qcresult}]
     
     # Detect pose and generate heatmap
     predicted_heatmap = model_pose(pose_input)
@@ -119,12 +120,15 @@ def transform_fn(net, data, input_content_type, output_content_type):
 
     for idx, ratio in enumerate(ratio_list):
         res = []
+        qc = []
         res.append(scores_list[0][idx])
+        qc.append(scores_list[0][idx])
         coords = coords_list[idx]
         for i, xy in enumerate(ratio):
-            res.append([float(coords[i][0]/IMG_W),float(coords[i][1]/IMG_H),xy[0],xy[1]])
+            res.append([xy[0],xy[1]])
+            qc.append([float(coords[i][0]/IMG_W),float(coords[i][1]/IMG_H)])
         result.append(res)
+        qcresult.append(qc)
 
-    predictions = {'prediction':result}
-
-    return predictions
+    predictionslist = [{'prediction':result}, {'qcresult':qcresult}]
+    return predictionslist
