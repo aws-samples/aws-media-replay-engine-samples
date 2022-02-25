@@ -1,7 +1,7 @@
 {
   "Lambda": {
     "Handler": "DetectPoseKeypoints.lambda_handler",
-    "MemorySize": 10000,
+    "MemorySize": 3008,
     "TimeoutSecs": 240,
     "IAMPolicyDocument": [
       {

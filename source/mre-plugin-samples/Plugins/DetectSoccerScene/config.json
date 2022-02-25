@@ -2,7 +2,7 @@
   "Lambda": {
     "Handler": "DetectSoccerScene.lambda_handler",
     "MemorySize": 1024,
-    "TimeoutSecs": 120,
+    "TimeoutSecs": 180,
     "IAMPolicyDocument": [
       {
         "Actions": [
