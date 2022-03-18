@@ -17,7 +17,10 @@
       "ExecuteLambdaQualifiedARN": "",
       "Configuration": {
         "optimization_search_window_sec": "5"
-      }
+      },
+      "DependentPlugins": [
+        "DetectSceneChange"
+      ]
     }
   }
 }
