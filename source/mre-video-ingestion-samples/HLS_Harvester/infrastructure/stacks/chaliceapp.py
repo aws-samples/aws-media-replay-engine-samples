@@ -5,7 +5,7 @@ import os
 import sys
 
 from aws_cdk import (
-    core as cdk,
+    Stack,
     aws_iam as iam
 )
 from chalice.cdk import Chalice
@@ -21,7 +21,7 @@ RUNTIME_SOURCE_DIR = os.path.join(
     os.path.dirname(os.path.dirname(__file__)), os.pardir, 'runtime')
 
 
-class ChaliceApp(cdk.Stack):
+class ChaliceApp(Stack):
 
     def __init__(self, scope, id, **kwargs):
         super().__init__(scope, id, **kwargs)
@@ -41,7 +41,7 @@ class ChaliceApp(cdk.Stack):
                     "execute-api:Invoke",
                     "execute-api:ManageConnections"
                 ],
-                resources=[f"arn:aws:execute-api:{cdk.Stack.of(self).region}:{cdk.Stack.of(self).account}:*"]
+                resources=[f"arn:aws:execute-api:{Stack.of(self).region}:{Stack.of(self).account}:*"]
             )
         )
 
@@ -53,7 +53,7 @@ class ChaliceApp(cdk.Stack):
                     "ssm:DescribeParameters",
                     "ssm:GetParameter*"
                 ],
-                resources=[f"arn:aws:ssm:{cdk.Stack.of(self).region}:{cdk.Stack.of(self).account}:parameter/MRE*"]
+                resources=[f"arn:aws:ssm:{Stack.of(self).region}:{Stack.of(self).account}:parameter/MRE*"]
             )
         )
 
@@ -65,7 +65,7 @@ class ChaliceApp(cdk.Stack):
                     "sqs:DeleteMessage",
                     "sqs:ReceiveMessage"
                 ],
-                resources=[f"arn:aws:sqs:{cdk.Stack.of(self).region}:{cdk.Stack.of(self).account}:{harvester_config.SQS_QUEUE_URL.split('/')[-1]}"]
+                resources=[f"arn:aws:sqs:{Stack.of(self).region}:{Stack.of(self).account}:{harvester_config.SQS_QUEUE_URL.split('/')[-1]}"]
             )
         )
 

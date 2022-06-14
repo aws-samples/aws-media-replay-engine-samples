@@ -5,7 +5,7 @@
 chalice.out
 **/.chalice/deployments/
 **/.chalice/venv/
-venv/
+*venv/
 .aws-sam
 .idea/
 .vscode

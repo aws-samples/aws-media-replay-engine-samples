@@ -3,10 +3,10 @@
 
 #!/usr/bin/env python3
 
-from aws_cdk import core as cdk
+from aws_cdk import App
 from stacks.mre_plugins_stack import MrePluginsStack
 
-app = cdk.App()
+app = App()
 MrePluginsStack(app, "aws-mre-plugin-samples")
 
 app.synth()
