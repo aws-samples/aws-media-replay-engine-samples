@@ -3,19 +3,23 @@
 
 import json
 import os
+from constructs import Construct
 from aws_cdk import (
-    core as cdk,
+    Duration,
+    Stack,
+    CfnParameter,
+    CfnOutput,
     aws_iam as iam,
     aws_lambda as _lambda,
 )
 
 
-class MrePluginsStack(cdk.Stack):
+class MrePluginsStack(Stack):
 
-    def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
+    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        self.helper_layer_arn = cdk.CfnParameter(
+        self.helper_layer_arn = CfnParameter(
             self,
             "helperlayerarn",
             type="String"
@@ -50,7 +54,7 @@ class MrePluginsStack(cdk.Stack):
                             "logs:CreateLogStream",
                             "logs:PutLogEvents"
                         ],
-                        resources=[f"arn:aws:logs:{cdk.Stack.of(self).region}:{cdk.Stack.of(self).account}:log-group:/aws/lambda/{plugin_name}:*"]
+                        resources=[f"arn:aws:logs:{Stack.of(self).region}:{Stack.of(self).account}:log-group:/aws/lambda/{plugin_name}:*"]
                     )
                 )
 
@@ -61,7 +65,7 @@ class MrePluginsStack(cdk.Stack):
                             "ssm:DescribeParameters",
                             "ssm:GetParameter*"
                         ],
-                        resources=[f"arn:aws:ssm:{cdk.Stack.of(self).region}:{cdk.Stack.of(self).account}:parameter/MRE*"]
+                        resources=[f"arn:aws:ssm:{Stack.of(self).region}:{Stack.of(self).account}:parameter/MRE*"]
                     )
                 )
 
@@ -72,7 +76,7 @@ class MrePluginsStack(cdk.Stack):
                             "execute-api:Invoke",
                             "execute-api:ManageConnections"
                         ],
-                        resources=[f"arn:aws:execute-api:{cdk.Stack.of(self).region}:{cdk.Stack.of(self).account}:*"]
+                        resources=[f"arn:aws:execute-api:{Stack.of(self).region}:{Stack.of(self).account}:*"]
                     )
                 )
                 ### END: MRE IAM Policies for the Plugin ###
@@ -84,7 +88,7 @@ class MrePluginsStack(cdk.Stack):
                             iam.PolicyStatement(
                                 effect=iam.Effect.ALLOW,
                                 actions=policy["Actions"],
-                                resources=[resource.replace("region", cdk.Stack.of(self).region).replace("account-id", cdk.Stack.of(self).account) for resource in policy["Resources"]]
+                                resources=[resource.replace("region", Stack.of(self).region).replace("account-id", Stack.of(self).account) for resource in policy["Resources"]]
                             )
                         )
 
@@ -98,14 +102,14 @@ class MrePluginsStack(cdk.Stack):
                     handler=plugin_config["Lambda"]["Handler"],
                     role=self.lambda_role,
                     memory_size=plugin_config["Lambda"]["MemorySize"],
-                    timeout=cdk.Duration.seconds(plugin_config["Lambda"]["TimeoutSecs"]),
+                    timeout=Duration.seconds(plugin_config["Lambda"]["TimeoutSecs"]),
                     layers=[
                         self.plugin_helper_layer
                     ]
                 )
 
                 # Add the Plugin Lambda ARN to CFN Output
-                cdk.CfnOutput(
+                CfnOutput(
                     self,
                     plugin_name,
                     export_name=plugin_name,
