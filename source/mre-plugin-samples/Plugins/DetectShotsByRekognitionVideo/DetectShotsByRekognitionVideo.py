@@ -9,6 +9,8 @@ import ffmpeg
 from MediaReplayEnginePluginHelper import OutputHelper
 from MediaReplayEnginePluginHelper import Status
 from MediaReplayEnginePluginHelper import DataPlane
+from botocore.exceptions import ClientError
+
 s3_client = boto3.client('s3')
 
 class VideoDetect:
