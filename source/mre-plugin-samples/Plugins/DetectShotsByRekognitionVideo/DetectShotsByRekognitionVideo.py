@@ -9,6 +9,8 @@ import ffmpeg
 from MediaReplayEnginePluginHelper import OutputHelper
 from MediaReplayEnginePluginHelper import Status
 from MediaReplayEnginePluginHelper import DataPlane
+from botocore.exceptions import ClientError
+
 s3_client = boto3.client('s3')
 
 class VideoDetect:
@@ -295,7 +297,7 @@ def lambda_handler(event, context):
         try:
             stream = ffmpeg.input(media_path)
             out, err = (
-                ffmpeg.output(stream,mp4_path)
+                ffmpeg.output(stream,mp4_path,vcodec='copy')
                 .run(capture_stdout=True, capture_stderr=True,overwrite_output=True)
             )
         except ffmpeg.Error as err:
